@@ -1,0 +1,36 @@
+bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+int flag=0;
+int size1=0;
+int size2=0;
+SinglyLinkedListNode* ptr=head1;
+
+
+while(ptr->next!=NULL){
+    ptr=ptr->next;
+    size1++;
+}
+ptr=head2;
+while(ptr->next!=NULL){
+    ptr=ptr->next;
+    size2++;
+}
+if(size1!=size2){
+    return 0;
+}else{
+
+while(head1->next!=NULL){
+    size1++;
+}
+
+while(head1!=NULL && head2!=NULL){
+    if(head1->data==head2->data){
+    }
+    else{
+        return 0;
+    }
+    head1=head1->next;
+    head2=head2->next;
+}
+return 1;
+}
+}

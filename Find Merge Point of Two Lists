@@ -18,7 +18,6 @@ ptr2=head2;
 int max;
 int small;
 int big;
-SinglyLinkedListNode* value;
 if(size1<size2){
     small=size1;
     big=size2;

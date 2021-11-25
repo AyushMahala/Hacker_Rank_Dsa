@@ -1,0 +1,64 @@
+int findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+    
+SinglyLinkedListNode* ptr1=head1;
+SinglyLinkedListNode* ptr2=head2;
+int size1=0;
+int size2=0;
+while(ptr1->next!=NULL){
+    ptr1=ptr1->next;
+    size1++;
+}
+while(ptr2->next!=NULL){
+    ptr2=ptr2->next;
+    size2++;
+}
+ptr1=head1;
+ptr2=head2;
+
+int max;
+int small;
+int big;
+SinglyLinkedListNode* value;
+if(size1<size2){
+    small=size1;
+    big=size2;
+    max=2;
+}
+else{
+    small=size2;
+    big=size1;
+    max=1;
+}
+for(int i=0;i<=small;i++){
+    for(int j=0;j<=big;j++){
+        if(max==1){
+            if(ptr1==ptr2){
+                return(ptr1->data);
+            }
+            else{
+                ptr1=ptr1->next;
+            }
+        
+        }
+        if(max==2){
+            if(ptr1==ptr2){
+                return ptr1->data;
+            }
+            else{
+                ptr2=ptr2->next;
+            }
+        
+        }
+    
+    }
+        if(max==1){
+            ptr2=ptr2->next;
+            ptr1=head1;
+        }
+        else{
+            ptr1=ptr1->next;
+            ptr2=head2;
+        }
+}
+return 1;
+}
